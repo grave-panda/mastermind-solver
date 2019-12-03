@@ -1,0 +1,7 @@
+[package]
+name = "mastermind-solver"
+version = "0.1.0"
+authors = ["Grave Panda <thegravepanda@gmail.com>"]
+edition = "2018"
+
+[dependencies]
