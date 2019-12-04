@@ -4,7 +4,7 @@ use std::process::exit;
 fn main() {
     let mut digits: Vec<i32> = vec![];
 
-   	for mut i in 1i32..10 {
+   	for i in 1i32..10 {
    		if digits.len() == 6 {
    			break;
    		}
@@ -22,7 +22,11 @@ fn main() {
         		let b: i32 = a%10;
         		a-=b;
         		a/=10;
-        		for j in 1i32..(a+b+1) {
+                if a+b+(digits.len() as i32) > 6 {
+                    println!("Incorrect input. Please start again.");
+                    main();
+                }
+        		for _j in 1i32..(a+b+1) {
         			digits.push(i);
         		}
         	},
@@ -58,7 +62,10 @@ fn main() {
         			if res==10 {
         				final_result[f] = *digits.get(i).unwrap();
         				break;
-        			}
+        			} else if res!=1 {
+                        println!("Incorrect input. Please start again.");
+                        main();
+                    }
         		},
         		Err(..) => {
         			println!("this was not an integer: {}", trimmed);
