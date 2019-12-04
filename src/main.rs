@@ -24,7 +24,7 @@ fn main() {
         		a/=10;
                 if a+b+(digits.len() as i32) > 6 {
                     println!("Incorrect input. Please start again.");
-                    main();
+                    call_main();
                 }
         		for _j in 1i32..(a+b+1) {
         			digits.push(i);
@@ -32,7 +32,7 @@ fn main() {
         	},
         	Err(..) => {
         		println!("this was not an integer: {}", trimmed);
-        		main();
+        		call_main();
         	},
     	};
 	}
@@ -64,12 +64,12 @@ fn main() {
         				break;
         			} else if res!=1 {
                         println!("Incorrect input. Please start again.");
-                        main();
+                        call_main();
                     }
         		},
         		Err(..) => {
         			println!("this was not an integer: {}", trimmed);
-        			main();
+        			call_main();
         		},
     		};
     	}
@@ -85,12 +85,16 @@ fn main() {
     			println!("I guessed it!");
     			exit(0);
     		} else {
-    			main();
+    			call_main();
     		}
     	},
     	Err(..) => {
     		println!("this was not an integer: {}", trimmed);
-    		main();
+    		call_main();
     	},
     };
+}
+
+fn call_main() {
+    main();
 }
